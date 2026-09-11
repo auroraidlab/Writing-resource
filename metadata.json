@@ -1,0 +1,6 @@
+{
+  "name": "문장서랍",
+  "description": "책의 목차가 없는 상태에서 자유롭게 글감을 무작위로 모으고 AI 인사이트와 테마를 찾아 Google Sheets에 누적 저장하는 문장 아카이브 웹앱",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
