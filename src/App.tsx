@@ -4,6 +4,7 @@ import { SentenceInputForm } from "./components/SentenceInputForm";
 import { AiInsightCard } from "./components/AiInsightCard";
 import { SheetsSettingsModal } from "./components/SheetsSettingsModal";
 import { ArchiveDrawer } from "./components/ArchiveDrawer";
+import { OgPreviewModal } from "./components/OgPreviewModal";
 import {
   SavedSentenceRecord,
   AIAnalysisResult,
@@ -59,6 +60,7 @@ export default function App() {
 
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isArchiveOpen, setIsArchiveOpen] = useState(false);
+  const [isOgPreviewOpen, setIsOgPreviewOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
   // Success Notification
@@ -289,6 +291,7 @@ export default function App() {
         spreadsheetUrl={projectSettings.sheetSpreadsheetUrl}
         onOpenSettings={() => setIsSettingsOpen(true)}
         onOpenArchive={() => setIsArchiveOpen(true)}
+        onOpenOgPreview={() => setIsOgPreviewOpen(true)}
         savedCount={savedRecords.length}
       />
 
@@ -505,6 +508,11 @@ export default function App() {
         sheetSpreadsheetUrl={projectSettings.sheetSpreadsheetUrl}
         writingStyle={writingStyle}
         targetAudience={targetAudience}
+      />
+
+      <OgPreviewModal
+        isOpen={isOgPreviewOpen}
+        onClose={() => setIsOgPreviewOpen(false)}
       />
     </div>
   );

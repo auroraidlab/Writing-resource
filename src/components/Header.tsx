@@ -1,5 +1,5 @@
 import React from "react";
-import { BookMarked, Archive, CheckCircle2, FileSpreadsheet, ExternalLink } from "lucide-react";
+import { BookMarked, Archive, CheckCircle2, FileSpreadsheet, ExternalLink, Share2 } from "lucide-react";
 
 interface HeaderProps {
   isGoogleConnected: boolean;
@@ -7,6 +7,7 @@ interface HeaderProps {
   spreadsheetUrl?: string;
   onOpenSettings: () => void;
   onOpenArchive: () => void;
+  onOpenOgPreview?: () => void;
   savedCount: number;
 }
 
@@ -16,6 +17,7 @@ export const Header: React.FC<HeaderProps> = ({
   spreadsheetUrl,
   onOpenSettings,
   onOpenArchive,
+  onOpenOgPreview,
   savedCount,
 }) => {
   return (
@@ -78,6 +80,20 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <ExternalLink className="w-3.5 h-3.5 text-stone-600" />
             </a>
+          )}
+
+          {/* OpenGraph Share Preview Button */}
+          {onOpenOgPreview && (
+            <button
+              id="open-og-preview-btn"
+              type="button"
+              onClick={onOpenOgPreview}
+              className="text-xs px-2.5 py-1.5 rounded-md border border-stone-300 bg-white hover:bg-stone-50 text-stone-700 flex items-center space-x-1.5 transition-colors cursor-pointer"
+              title="오픈그래프(OG) 카드 미리보기 및 공유 링크 복사"
+            >
+              <Share2 className="w-3.5 h-3.5 text-stone-500" />
+              <span className="hidden sm:inline">공유(OG)</span>
+            </button>
           )}
 
           {/* Archive Drawer Button */}
